@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hoxie Ave</title>
+    
+    <!-- SCRIPTS -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+    
+    <!-- STYLES -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+    <style>
+      body { 
+        min-height: 700px; 
+      }
+      #map { 
+        width:700px; 
+        height: 500px; 
+        position: absolute; 
+      }
+    </style>
+    
+  </head>
+  <body>
+    <nav>
+      <div id="nav-container">
+        <div><a href="/">Home</a></div>
+        <div><a href="/chat.html">Hoxie Chat</a></div>
+        <div><a href="/things-to-do.html">Things to Do</a></div>
+        <div><a href="/weather.html">Weather</a></div>
+      </div>
+    </nav>
+    <h1>Welcome, Hoxies!</h1>
+
+    <p>Here's a little piece of the internet for folks who live on Hoxie Ave in Richland WA.</p>
+    
+    <div id='map'></div>
+    <div id='map-overlay'></div>
+    
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1IjoiY3Jvc3NkaXZlciIsImEiOiJpQlF3WGV3In0.rZKUegXlMMHHTeV9xA-RJw';
+      var mapId = 'crossdiver.m63da211';
+      var options = {
+          zoomControl: false,
+          attributionControl: false
+      };
+      
+      var map = L.mapbox.map('map', mapId, options)
+          .setView([46.305, -119.271], 15);
+          
+      var mapOverlay = L.mapbox.map('map-overlay', mapId, options)
+          .setView([46.290, -119.271], 11);
+      
+      setTimeout(function() { mapOverlay.invalidateSize(true) }, 200);
+
+    </script>
+    
+    <style>
+      #map-overlay {
+          position: absolute;
+          left:10px;
+          top: 10px;
+          width:200px;
+          height:150px;
+          border:1px solid #fff;
+      }
+    </style>
+  
+    <!--<iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/crossdiver.m63da211/attribution.html?access_token=pk.eyJ1IjoiY3Jvc3NkaXZlciIsImEiOiJpQlF3WGV3In0.rZKUegXlMMHHTeV9xA-RJw'></iframe>-->
+    
+    
+    
+  </body>
+</html>
