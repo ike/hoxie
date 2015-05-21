@@ -22,7 +22,7 @@
       
         componentWillMount: function() {
           var firebaseRef = new Firebase("https://glowing-inferno-261.firebaseIO.com/events/");
-          this.bindAsArray(firebaseRef.limitToLast(25), "events");
+          this.bindAsArray(firebaseRef.orderByChild("date"), "events");
         },
       
         onChange: function(e) {
